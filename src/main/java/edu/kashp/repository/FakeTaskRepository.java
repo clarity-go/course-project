@@ -23,9 +23,10 @@ import java.util.UUID;
 
 @Repository
 
-public class FakeEmployeeRepository {
+public class FakeTaskRepository {
 
     private LocalDateTime time = LocalDateTime.now();
+
 
     LocalDate startDate = LocalDate.of(2021, Month.OCTOBER, 14);
     LocalDate finishDate = LocalDate.of(2021, Month.NOVEMBER, 20);
@@ -39,7 +40,7 @@ public class FakeEmployeeRepository {
             )
     );
 
-    private List<Task> task = new ArrayList<>(
+    private List<Task> list = new ArrayList<>(
             Arrays.asList(
                     new Task("0", taskType.get(0), startDate, finishDate, 2, "desc0", time, time),
                     new Task("1", taskType.get(1), startDate, finishDate, 1, "desc0", time, time),
@@ -48,51 +49,42 @@ public class FakeEmployeeRepository {
             )
     );
 
-    private List<Employee> list = new ArrayList<>(
-            Arrays.asList(
-                    new Employee("0", "name0", task.get(0), 20000, "desc0", time ,time),
-                    new Employee("1", "name1", task.get(1), 25000, "desc0", time ,time),
-                    new Employee("2", "name2", task.get(2), 27000, "desc0", time ,time),
-                    new Employee("3", "name3", task.get(3), 39000, "desc0", time ,time)
-            )
-    );
-
-    public Employee create(Employee employee) {
+    public Task create(Task task) {
         String id = UUID.randomUUID().toString();
-        employee.setId(id);
-        employee.setCreatedAt(LocalDateTime.now());
-        employee.setUpdatedAt(LocalDateTime.now());
-        list.add(employee);
-        return employee;
+        task.setId(id);
+        task.setCreatedAt(LocalDateTime.now());
+        task.setUpdatedAt(LocalDateTime.now());
+        list.add(task);
+        return task;
     }
 
-    public Employee get(String id) {
+    public Task get(String id) {
 
-        Employee employee = list.stream().filter(el -> el.getId().equals(id))
+        Task task = list.stream().filter(el -> el.getId().equals(id))
                 .findAny().get();
-        return employee;
+        return task;
     }
 
-    public Employee update(Employee employee) {
-        String id = employee.getId();
-        Employee employeeToUpdate = this.get(id);
-        employee.setCreatedAt(employeeToUpdate.getCreatedAt());
-        int index = list.indexOf(employeeToUpdate); // find the place from which we have deleted the item
-        employee.setUpdatedAt(LocalDateTime.now());
-        list.remove(employeeToUpdate);
-        list.add(index, employee); // add updated items on the place from which we have deleted them
-        return employee;
+    public Task update(Task task) {
+        String id = task.getId();
+        Task taskToUpdate = this.get(id);
+        task.setCreatedAt(taskToUpdate.getCreatedAt());
+        int index = list.indexOf(taskToUpdate); // find the place from which we have deleted the item
+        task.setUpdatedAt(LocalDateTime.now());
+        list.remove(taskToUpdate);
+        list.add(index, task); // add updated items on the place from which we have deleted them
+        return task;
     }
 
-    public Employee delete(String id) {
+    public Task delete(String id) {
 
-        Employee employee = this.get(id);
-        list.remove(employee);
+        Task task = this.get(id);
+        list.remove(task);
 
-        return employee;
+        return task;
     }
 
-    public List<Employee> getAll() {
+    public List<Task> getAll() {
         return list;
     }
 }

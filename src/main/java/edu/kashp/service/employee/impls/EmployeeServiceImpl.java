@@ -14,35 +14,72 @@ import edu.kashp.service.employee.interfaces.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
+
     @Autowired
     FakeEmployeeRepository repository;
 
+    @Autowired
+    EmployeeMongoRepository mongoRepository;
+
+    //    @PostConstruct
+    void init() {
+        List<Employee> list = repository.getAll();
+        mongoRepository.saveAll(list);
+    }
+
     @Override
     public Employee create(Employee employee) {
-        return repository.create(employee);
+        employee.setCreatedAt(LocalDateTime.now());
+        employee.setUpdatedAt(LocalDateTime.now());
+        return mongoRepository.save(employee);
+//        return repository.create(employee);
     }
 
     @Override
     public Employee get(String id) {
-        return repository.get(id);
+
+//        Item item = list.stream().filter(el -> el.getId().equals(id))
+//                .findAny().get();
+//        return item;
+
+//        return repository.get(id);
+        return mongoRepository.findById(id).get();
     }
 
     @Override
     public Employee update(Employee employee) {
-        return repository.update(employee);
+
+        Employee employeeToUpdate = this.get(employee.getId());
+        LocalDateTime creation = employeeToUpdate.getCreatedAt();
+        employee.setCreatedAt(creation);
+//        return null;
+//        return repository.update(item);
+
+        employee.setUpdatedAt(LocalDateTime.now());
+        return mongoRepository.save(employee);
     }
 
     @Override
     public Employee delete(String id) {
-        return repository.delete(id);
+        Employee employee = this.get(id);
+        mongoRepository.deleteById(id);
+        return employee;
+
+//        Item item = this.get(id);
+//        list.remove(item);
+//        return repository.delete(id);
     }
 
     @Override
     public List<Employee> getAll() {
-        return repository.getAll();
+
+//        return list;
+//        return repository.getAll();
+        return mongoRepository.findAll();
     }
 }

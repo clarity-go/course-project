@@ -8,16 +8,12 @@ package edu.kashp.controller.rest;
   @since 20.07.2021 - 19.43
 */
 
-import edu.kashp.model.Employee;
-import edu.kashp.service.employee.impls.EmployeeServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/employee")
-public class EmployeeRestController {
+public class TaskRestController {
 
 //    @Autowired
 //    EmployeeServiceImpl service;
