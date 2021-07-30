@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Employee</title>
+    <title>Update Task Type</title>
 </head>
 <body>
 
@@ -11,15 +11,11 @@
 
 <div>
     <fieldset>
-        <legend>Update Employee</legend>
+        <legend>Update Task Type</legend>
         <form name="item" action="" method="POST">
             id:<@spring.formInput "form.id" "" "text"/>
             <br>
-            name:<@spring.formInput "form.name" "" "text"/>
-            <br>
-            Task:<@spring.formInput "form.task" "" "text"/>
-            <br>
-            salary:<@spring.formInput "form.salary" "" "number"/>
+            DailyPayment:<@spring.formInput "form.dailyPayment" "" "text"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

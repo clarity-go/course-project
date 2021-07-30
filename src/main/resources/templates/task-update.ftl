@@ -11,15 +11,17 @@
 
 <div>
     <fieldset>
-        <legend>Update Employee</legend>
+        <legend>Update Task</legend>
         <form name="item" action="" method="POST">
             id:<@spring.formInput "form.id" "" "text"/>
             <br>
-            name:<@spring.formInput "form.name" "" "text"/>
+            TaskType:<@spring.formInput "form.taskType" "" "text"/>
             <br>
-            Task:<@spring.formInput "form.task" "" "text"/>
+            StartDate:<@spring.formInput "form.startDate" "" "number"/>
             <br>
-            salary:<@spring.formInput "form.salary" "" "number"/>
+            FinishDate:<@spring.formInput "form.finishDate" "" "number"/>
+            <br>
+            NumberOfEmployees:<@spring.formInput "form.numberOfEmployees" "" "number"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>
