@@ -12,10 +12,12 @@
 <div>
     <fieldset>
         <legend>Update Task Type</legend>
-        <form name="item" action="" method="POST">
+        <form name="taskType" action="" method="POST">
             id:<@spring.formInput "form.id" "" "text"/>
             <br>
-            DailyPayment:<@spring.formInput "form.dailyPayment" "" "text"/>
+            Type:<@spring.formInput "form.type" "" "text"/>
+            <br>
+            DailyPayment:<@spring.formInput "form.dailyPayment" "" "number"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

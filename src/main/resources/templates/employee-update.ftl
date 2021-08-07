@@ -12,7 +12,7 @@
 <div>
     <fieldset>
         <legend>Update Employee</legend>
-        <form name="item" action="" method="POST">
+        <form name="employee" action="" method="POST">
             id:<@spring.formInput "form.id" "" "text"/>
             <br>
             name:<@spring.formInput "form.name" "" "text"/>

@@ -15,10 +15,11 @@
 <h1> Table of Task Types </h1>
 <div class="container">
     <div class="center">
-        <table border="3" bgcolor="#f0f8ff" style="text-align: center">
+        <table class="table table-dark">
             <tr>
                 <th>ID</th>
-                <th>Daily Payment</th>
+                <th>Type</th>
+                <th>DailyPayment</th>
                 <th>Description</th>
                 <th>Created</th>
                 <th>Updated</th>
@@ -29,6 +30,7 @@
             <#list taskTypes as taskType>
                 <tr>
                     <td>${taskType.id}</td>
+                    <td>${taskType.type}</td>
                     <td>${taskType.dailyPayment}</td>
                     <td>${taskType.description}</td>
                     <td>${taskType.createdAt}</td>

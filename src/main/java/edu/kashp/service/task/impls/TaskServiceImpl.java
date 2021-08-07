@@ -1,10 +1,13 @@
 package edu.kashp.service.task.impls;
 
 import edu.kashp.model.Task;
+import edu.kashp.repository.FakeTaskRepository;
+import edu.kashp.repository.TaskMongoRepository;
 import edu.kashp.service.task.interfaces.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,12 +28,11 @@ public class TaskServiceImpl implements ITaskService {
     @Autowired
     TaskMongoRepository mongoRepository;
 
-    //    @PostConstruct
+    @PostConstruct
     void init() {
         List<Task> list = repository.getAll();
         mongoRepository.saveAll(list);
     }
-
     @Override
     public Task create(Task task) {
 //        System.out.println("item has been accepted" + item.toString());

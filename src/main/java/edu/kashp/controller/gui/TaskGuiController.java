@@ -11,7 +11,9 @@ package edu.kashp.controller.gui;
 import edu.kashp.form.EmployeeCreateForm;
 import edu.kashp.form.EmployeeUpdateForm;
 import edu.kashp.model.Employee;
+import edu.kashp.model.Task;
 import edu.kashp.service.employee.impls.EmployeeServiceImpl;
+import edu.kashp.service.task.impls.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ import java.util.List;
 public class TaskGuiController {
 
     @Autowired
-    EmployeeServiceImpl service;
+    TaskServiceImpl service;
 
     @RequestMapping("/all")
     public String getAll(Model model){

@@ -11,6 +11,8 @@ package edu.kashp.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,10 +21,10 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Document
+@Document
 
 public class Task {
-//    @Id
+    @Id
     private String id;
     private TaskType taskType;
     private LocalDate startDate;

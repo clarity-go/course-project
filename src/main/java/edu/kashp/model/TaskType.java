@@ -11,6 +11,8 @@ package edu.kashp.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -18,17 +20,19 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Document
+@Document
 
 public class TaskType {
-//    @Id
+    @Id
     private String id;
+    private String type;
     private double dailyPayment;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public TaskType(double dailyPayment, String description) {
+    public TaskType(String type, double dailyPayment, String description) {
+        this.type = type;
         this.dailyPayment = dailyPayment;
         this.description = description;
     }

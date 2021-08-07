@@ -8,10 +8,10 @@ package edu.kashp.controller.gui;
   @since 20.07.2021 - 19.42
 */
 
-import edu.kashp.form.EmployeeCreateForm;
-import edu.kashp.form.EmployeeUpdateForm;
-import edu.kashp.model.Employee;
-import edu.kashp.service.employee.impls.EmployeeServiceImpl;
+import edu.kashp.form.TaskTypeCreateForm;
+import edu.kashp.form.TaskTypeUpdateForm;
+import edu.kashp.model.TaskType;
+import edu.kashp.service.task_type.impls.TaskTypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class TaskTypeGuiController {
 
     @RequestMapping("/all")
     public String getAll(Model model){
-        List<TaskType> taskType = service.getAll();
+        List<TaskType> taskTypes = service.getAll();
         model.addAttribute("taskTypes", taskTypes);
         return "taskTypes";
     }
@@ -44,14 +44,15 @@ public class TaskTypeGuiController {
 
     @GetMapping("/create")
     public String create(Model model){
-        TaskTypeCreateForm formToCreate = new EmployeeCreateForm();
+        TaskTypeCreateForm formToCreate = new TaskTypeCreateForm();
         model.addAttribute("form", formToCreate);
         return "taskType-create";
     }
+
     @PostMapping("/create")
     public String create( @ModelAttribute("form") TaskTypeCreateForm form){
-        TaskType taskType = new Employee();
-        taskType.setName(form.getName());
+        TaskType taskType = new TaskType();
+        taskType.setDailyPayment(form.getDailyPayment());
         taskType.setDescription(form.getDescription());
         service.create(taskType);
         return "redirect:/gui/taskType/all";
@@ -62,7 +63,7 @@ public class TaskTypeGuiController {
         TaskType taskType = service.get(id);
         TaskTypeUpdateForm formToUpdate = new TaskTypeUpdateForm();
         formToUpdate.setId(taskType.getId());
-        formToUpdate.setName(taskType.getName());
+        formToUpdate.setDailyPayment(taskType.getDailyPayment());
         formToUpdate.setDescription(taskType.getDescription());
         formToUpdate.setCreatedAt(taskType.getCreatedAt());
         formToUpdate.setUpdatedAt(taskType.getUpdatedAt());
@@ -71,10 +72,10 @@ public class TaskTypeGuiController {
     }
 
     @PostMapping("/update/{id}")
-    public String update( @ModelAttribute("form") EmployeeUpdateForm form){
+    public String update( @ModelAttribute("form") TaskTypeUpdateForm form){
         TaskType taskType = new TaskType();
         taskType.setId(form.getId());
-        taskType.setName(form.getName());
+        taskType.setDailyPayment(form.getDailyPayment());
         taskType.setDescription(form.getDescription());
         taskType.setCreatedAt(form.getCreatedAt());
         service.update(taskType);

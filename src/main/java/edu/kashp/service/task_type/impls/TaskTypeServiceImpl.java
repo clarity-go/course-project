@@ -1,10 +1,13 @@
 package edu.kashp.service.task_type.impls;
 
 import edu.kashp.model.TaskType;
+import edu.kashp.repository.FakeTaskTypeRepository;
+import edu.kashp.repository.TaskTypeMongoRepository;
 import edu.kashp.service.task_type.interfaces.ITaskTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,9 +26,9 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
     @Autowired
     TaskTypeMongoRepository mongoRepository;
 
-    //    @PostConstruct
+    @PostConstruct
     void init(){
-        List<TaskType> taskType = repository.getAll();
+        List<TaskType> list = repository.getAll();
         mongoRepository.saveAll(list);
     }
 
@@ -52,15 +55,15 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
     }
 
     @Override
-    public TaskType update(Item item) {
+    public TaskType update(TaskType taskType) {
 
-        TaskType taskTypeToUpdate = this.get(item.getId());
+        TaskType taskTypeToUpdate = this.get(taskType.getId());
         LocalDateTime creation = taskTypeToUpdate.getCreatedAt();
-        item.setCreatedAt(creation);
+        taskType.setCreatedAt(creation);
 //        return null;
 //        return repository.update(item);
 
-        item.setUpdatedAt(LocalDateTime.now());
+        taskType.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(taskType);
     }
 

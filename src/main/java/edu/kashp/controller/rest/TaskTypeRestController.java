@@ -9,7 +9,9 @@ package edu.kashp.controller.rest;
 */
 
 import edu.kashp.model.Employee;
+import edu.kashp.model.TaskType;
 import edu.kashp.service.employee.impls.EmployeeServiceImpl;
+import edu.kashp.service.task_type.impls.TaskTypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,12 +48,12 @@ public class TaskTypeRestController {
     // ------------------------ CREATE --------------------
     @PostMapping("/create")
     public TaskType create(@RequestBody TaskType taskType){
-        return service.create(employee);
+        return service.create(taskType);
     }
 
     // ------------------------ UPDATE ---------------------
     @PostMapping("/update")
     public TaskType update(@RequestBody TaskType taskType){
-        return service.update(employee);
+        return service.update(taskType);
     }
 }

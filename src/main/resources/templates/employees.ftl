@@ -15,12 +15,13 @@
 <h1> Table of Employees </h1>
 <div class="container">
     <div class="center">
-        <table border="3" bgcolor="#f0f8ff" style="text-align: center">
+        <table class="table table-dark">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th>Task</th>
                 <th>Salary</th>
+                <th>Description</th>
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Edit</th>
@@ -31,8 +32,9 @@
                 <tr>
                     <td>${employee.id}</td>
                     <td>${employee.name}</td>
-                    <td>${employee.description}</td>
+                    <td>${employee.task.description}</td>
                     <td>${employee.salary}</td>
+                    <td>${employee.description}</td>
                     <td>${employee.createdAt}</td>
                     <td>${employee.updatedAt}</td>
                     <td> <a href="/gui/employee/update/${employee.id}" > <input type="button" class="btn btn-secondary" value="Edit"> </a> </td>

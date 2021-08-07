@@ -11,9 +11,11 @@
 
 <div>
     <fieldset>
-        <legend>Add Employee</legend>
-        <form name="employee" action="" method="POST">
-            DailyPayment:<@spring.formInput "form.dailyPayment" "" "text"/>
+        <legend>Add Task Type</legend>
+        <form name="taskType" action="" method="POST">
+            Type:<@spring.formInput "form.type" "" "text"/>
+            <br>
+            DailyPayment:<@spring.formInput "form.dailyPayment" "" "number"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

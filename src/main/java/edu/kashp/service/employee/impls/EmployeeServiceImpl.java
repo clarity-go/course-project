@@ -9,11 +9,13 @@ package edu.kashp.service.employee.impls;
 */
 
 import edu.kashp.model.Employee;
+import edu.kashp.repository.EmployeeMongoRepository;
 import edu.kashp.repository.FakeEmployeeRepository;
 import edu.kashp.service.employee.interfaces.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Autowired
     EmployeeMongoRepository mongoRepository;
 
-    //    @PostConstruct
+    @PostConstruct
     void init() {
         List<Employee> list = repository.getAll();
         mongoRepository.saveAll(list);

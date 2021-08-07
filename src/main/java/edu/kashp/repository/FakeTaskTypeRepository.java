@@ -27,10 +27,15 @@ public class FakeTaskTypeRepository {
 
     private List<TaskType> list = new ArrayList<>(
             Arrays.asList(
-                    new TaskType("0", 2000, "desc0", time ,time),
-                    new TaskType("1", 2500, "desc0", time ,time),
-                    new TaskType("2", 2700, "desc0", time ,time),
-                    new TaskType("3", 3900, "desc0", time ,time)
+                    new TaskType("0","Marketing", 1500, "Creating Marketing Content", time ,time),
+                    new TaskType("1", "Marketing", 1560, "Writing Additional Articles", time ,time),
+                    new TaskType("2", "Management", 2700, "Creating Development Plan", time ,time),
+                    new TaskType("3", "Advertising", 3900, "Help with Advertisement", time ,time),
+                    new TaskType("4", "Management",2100, "Creating Sales Plan", time ,time),
+                    new TaskType("5","Management", 1700, "Working on Presentations", time ,time),
+                    new TaskType("6", "Management", 2500, "Arranging Meetings", time ,time),
+                    new TaskType("7",  "Support",800, "Reporting Bugs", time ,time),
+                    new TaskType("8", "Support", 1100, "Editing News Articles", time ,time)
             )
     );
 

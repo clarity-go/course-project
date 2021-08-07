@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Employee</title>
+    <title>Update Task</title>
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 <div>
     <fieldset>
         <legend>Update Task</legend>
-        <form name="item" action="" method="POST">
+        <form name="task" action="" method="POST">
             id:<@spring.formInput "form.id" "" "text"/>
             <br>
             TaskType:<@spring.formInput "form.taskType" "" "text"/>

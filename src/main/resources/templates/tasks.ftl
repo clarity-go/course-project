@@ -15,7 +15,8 @@
 <h1> Table of Tasks </h1>
 <div class="container">
     <div class="center">
-        <table border="3" bgcolor="#f0f8ff" style="text-align: center">
+<#--        <table border="3" bgcolor="#f0f8ff" style="text-align: center">-->
+        <table class="table table-dark">
             <tr>
                 <th>ID</th>
                 <th>Task Type</th>
@@ -32,7 +33,7 @@
             <#list tasks as task>
                 <tr>
                     <td>${task.id}</td>
-                    <td>${task.taskType}</td>
+                    <td>${task.taskType.type}</td>
                     <td>${task.startDate}</td>
                     <td>${task.finishDate}</td>
                     <td>${task.numberOfEmployees}</td>
