@@ -15,8 +15,6 @@
         <form name="employee" action="" method="POST">
             name:<@spring.formInput "form.name" "" "text"/>
             <br>
-            Task:<@spring.formInput "form.task" "" "text"/>
-            <br>
             salary:<@spring.formInput "form.salary" "" "number"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>

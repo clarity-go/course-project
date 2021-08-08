@@ -13,11 +13,8 @@
     <fieldset>
         <legend>Update Employee</legend>
         <form name="employee" action="" method="POST">
-            id:<@spring.formInput "form.id" "" "text"/>
-            <br>
+            id:<@spring.formInput "form.id" "" "hidden"/>
             name:<@spring.formInput "form.name" "" "text"/>
-            <br>
-            Task:<@spring.formInput "form.task" "" "text"/>
             <br>
             salary:<@spring.formInput "form.salary" "" "number"/>
             <br>

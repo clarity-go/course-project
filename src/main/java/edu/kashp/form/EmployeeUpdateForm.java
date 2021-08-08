@@ -21,7 +21,6 @@ import java.time.LocalDateTime;
 public class EmployeeUpdateForm {
     private String id;
     private String name;
-    private Task task;
     private double salary;
     private String description;
     private LocalDateTime createdAt;

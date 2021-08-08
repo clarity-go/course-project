@@ -26,7 +26,7 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
     @Autowired
     TaskTypeMongoRepository mongoRepository;
 
-    @PostConstruct
+    //@PostConstruct
     void init(){
         List<TaskType> list = repository.getAll();
         mongoRepository.saveAll(list);

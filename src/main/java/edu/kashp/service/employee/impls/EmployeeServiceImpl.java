@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Autowired
     EmployeeMongoRepository mongoRepository;
 
-    @PostConstruct
+    //@PostConstruct
     void init() {
         List<Employee> list = repository.getAll();
         mongoRepository.saveAll(list);

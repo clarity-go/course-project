@@ -19,7 +19,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Task</th>
                 <th>Salary</th>
                 <th>Description</th>
                 <th>Created</th>
@@ -32,7 +31,6 @@
                 <tr>
                     <td>${employee.id}</td>
                     <td>${employee.name}</td>
-                    <td>${employee.task.description}</td>
                     <td>${employee.salary}</td>
                     <td>${employee.description}</td>
                     <td>${employee.createdAt}</td>

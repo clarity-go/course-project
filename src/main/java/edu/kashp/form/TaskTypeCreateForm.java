@@ -18,4 +18,5 @@ import lombok.NoArgsConstructor;
 public class TaskTypeCreateForm {
     private double dailyPayment;
     private String description;
+    private String type;
 }

@@ -37,9 +37,7 @@ public class TaskTypeGuiController {
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") String id){
         service.delete(id);
-        List<TaskType> taskTypes = service.getAll();
-        model.addAttribute("taskTypes", taskTypes);
-        return "taskTypes";
+        return "redirect:/gui/taskType/all";
     }
 
     @GetMapping("/create")
@@ -52,6 +50,7 @@ public class TaskTypeGuiController {
     @PostMapping("/create")
     public String create( @ModelAttribute("form") TaskTypeCreateForm form){
         TaskType taskType = new TaskType();
+        taskType.setType(form.getType());
         taskType.setDailyPayment(form.getDailyPayment());
         taskType.setDescription(form.getDescription());
         service.create(taskType);
@@ -63,6 +62,7 @@ public class TaskTypeGuiController {
         TaskType taskType = service.get(id);
         TaskTypeUpdateForm formToUpdate = new TaskTypeUpdateForm();
         formToUpdate.setId(taskType.getId());
+        formToUpdate.setType(taskType.getType());
         formToUpdate.setDailyPayment(taskType.getDailyPayment());
         formToUpdate.setDescription(taskType.getDescription());
         formToUpdate.setCreatedAt(taskType.getCreatedAt());
@@ -74,6 +74,7 @@ public class TaskTypeGuiController {
     @PostMapping("/update/{id}")
     public String update( @ModelAttribute("form") TaskTypeUpdateForm form){
         TaskType taskType = new TaskType();
+        taskType.setType(form.getType());
         taskType.setId(form.getId());
         taskType.setDailyPayment(form.getDailyPayment());
         taskType.setDescription(form.getDescription());

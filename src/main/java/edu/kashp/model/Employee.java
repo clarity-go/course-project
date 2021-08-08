@@ -26,15 +26,13 @@ public class Employee {
     @Id
     private String id;
     private String name;
-    private Task task;
     private double salary;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Employee(String name, Task task, double salary, String description) {
+    public Employee(String name, double salary, String description) {
         this.name = name;
-        this.task = task;
         this.salary = salary;
         this.description = description;
     }

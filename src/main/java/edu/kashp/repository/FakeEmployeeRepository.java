@@ -44,31 +44,17 @@ public class FakeEmployeeRepository {
             )
     );
 
-    private List<Task> task = new ArrayList<>(
-            Arrays.asList(
-                    new Task("0", taskType.get(0), startDate, finishDate, 2, "Creating Marketing Content", time, time),
-                    new Task("1", taskType.get(1), startDate, finishDate, 1, "Writing Additional Articles", time, time),
-                    new Task("2", taskType.get(2), startDate, finishDate, 3, "Creating Development Plan", time, time),
-                    new Task("3", taskType.get(3), startDate, finishDate, 1, "Help with Advertisement", time, time),
-                    new Task("4", taskType.get(4), startDate, finishDate, 2, "Creating Sales Plan", time, time),
-                    new Task("5", taskType.get(5), startDate, finishDate, 1, "Working on Presentations", time, time),
-                    new Task("6", taskType.get(6), startDate, finishDate, 3, "Arranging Meetings", time, time),
-                    new Task("7", taskType.get(7), startDate, finishDate, 1, "Reporting Bugs", time, time),
-                    new Task("8", taskType.get(8), startDate, finishDate, 1, "Editing News Articles", time, time)
-            )
-    );
-
     private List<Employee> list = new ArrayList<>(
             Arrays.asList(
-                    new Employee("0", "Peter Flame", task.get(0), 20000, "Partner marketing manager", time ,time),
-                    new Employee("1", "Stephane Turbide", task.get(1), 25000, "Digital marketing specialist", time ,time),
-                    new Employee("2", "Peter Chung", task.get(2), 27000, "Partner marketing manager", time ,time),
-                    new Employee("3", "Daniel Cohen", task.get(3), 39000, "Brand manager", time ,time),
-                    new Employee("4", "Brian Miller", task.get(4), 20000, "Brand manager", time ,time),
-                    new Employee("5", "Paul Franks", task.get(5), 25000, "Public relations specialist", time ,time),
-                    new Employee("6", "Wei Hopeman", task.get(6), 27000, "Communications manager", time ,time),
-                    new Employee("7", "Aidan Larkin", task.get(7), 39000, "Digital marketing specialist", time ,time),
-                    new Employee("8", "Erik Graber", task.get(8), 39000, "Digital marketing specialist", time ,time)
+                    new Employee("0", "Peter Flame", 20000, "Partner marketing manager", time ,time),
+                    new Employee("1", "Stephane Turbide", 25000, "Digital marketing specialist", time ,time),
+                    new Employee("2", "Peter Chung", 27000, "Partner marketing manager", time ,time),
+                    new Employee("3", "Daniel Cohen", 39000, "Brand manager", time ,time),
+                    new Employee("4", "Brian Miller", 20000, "Brand manager", time ,time),
+                    new Employee("5", "Paul Franks", 25000, "Public relations specialist", time ,time),
+                    new Employee("6", "Wei Hopeman", 27000, "Communications manager", time ,time),
+                    new Employee("7", "Aidan Larkin", 39000, "Digital marketing specialist", time ,time),
+                    new Employee("8", "Erik Graber", 39000, "Digital marketing specialist", time ,time)
             )
     );
 

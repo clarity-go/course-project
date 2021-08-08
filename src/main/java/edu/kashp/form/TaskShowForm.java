@@ -1,13 +1,5 @@
 package edu.kashp.form;
 
-/*
-  @author   Alona Kashpruk
-  @project   course-project
-  @class  EmployeeUpdateForm
-  @version  1.0.0 
-  @since 22.07.2021 - 19.31
-*/
-
 import edu.kashp.model.Task;
 import edu.kashp.model.TaskType;
 import lombok.AllArgsConstructor;
@@ -19,27 +11,34 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+  @author   Alona Kashpruk
+  @project   course-project
+  @class  TaskShowForm
+  @version  1.0.0 
+  @since 08.08.2021 - 21.13
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskUpdateForm {
+public class TaskShowForm {
     private String id;
     private String taskType;
     private String startDate;
     private String finishDate;
-    private List<String> employees;
+    private String employees;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public TaskUpdateForm(Task task) {
+    public TaskShowForm(Task task) {
         this.id = task.getId();
         this.taskType = task.getTaskType().getType();
         this.startDate = task.getStartDate().toString();
         this.finishDate = task.getFinishDate().toString();
         this.employees = task.getEmployees().stream()
                 .map(employee -> employee.getName())
-                .collect(Collectors.toList());
+                .collect(Collectors.joining(",\n"));
         this.description = task.getDescription();
         this.createdAt = task.getCreatedAt();
         this.updatedAt = task.getUpdatedAt();

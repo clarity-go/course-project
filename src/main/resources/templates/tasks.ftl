@@ -22,7 +22,7 @@
                 <th>Task Type</th>
                 <th>Start Date</th>
                 <th>Finish Date</th>
-                <th>Number of Employees</th>
+                <th>Employees</th>
                 <th>Description</th>
                 <th>Created</th>
                 <th>Updated</th>
@@ -33,10 +33,10 @@
             <#list tasks as task>
                 <tr>
                     <td>${task.id}</td>
-                    <td>${task.taskType.type}</td>
+                    <td>${task.taskType}</td>
                     <td>${task.startDate}</td>
                     <td>${task.finishDate}</td>
-                    <td>${task.numberOfEmployees}</td>
+                    <td>${task.employees}</td>
                     <td>${task.description}</td>
                     <td>${task.createdAt}</td>
                     <td>${task.updatedAt}</td>

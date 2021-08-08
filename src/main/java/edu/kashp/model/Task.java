@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -29,16 +30,16 @@ public class Task {
     private TaskType taskType;
     private LocalDate startDate;
     private LocalDate finishDate;
-    private int numberOfEmployees;
+    private List<Employee> employees;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Task(TaskType taskType, LocalDate startDate, LocalDate finishDate, int numberOfEmployees) {
+    public Task(TaskType taskType, LocalDate startDate, LocalDate finishDate, List<Employee> employees) {
         this.taskType = taskType;
         this.startDate = startDate;
         this.finishDate = finishDate;
-        this.numberOfEmployees = numberOfEmployees;
+        this.employees = employees;
     }
 
     @Override

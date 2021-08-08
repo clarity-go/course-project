@@ -13,15 +13,14 @@
     <fieldset>
         <legend>Update Task</legend>
         <form name="task" action="" method="POST">
-            id:<@spring.formInput "form.id" "" "text"/>
+            <@spring.formInput "form.id" "" "hidden"/>
+            Employees: <@spring.formMultiSelect "form.employees" allEmployees ""/>
             <br>
-            TaskType:<@spring.formInput "form.taskType" "" "text"/>
+            Task type: <@spring.formSingleSelect "form.taskType" allTaskTypes ""/>
             <br>
-            StartDate:<@spring.formInput "form.startDate" "" "number"/>
+            StartDate:<@spring.formInput "form.startDate" "" "date"/>
             <br>
-            FinishDate:<@spring.formInput "form.finishDate" "" "number"/>
-            <br>
-            NumberOfEmployees:<@spring.formInput "form.numberOfEmployees" "" "number"/>
+            FinishDate:<@spring.formInput "form.finishDate" "" "date"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

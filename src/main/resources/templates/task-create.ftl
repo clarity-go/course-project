@@ -13,7 +13,13 @@
     <fieldset>
         <legend>Add Task</legend>
         <form name="task" action="" method="POST">
-            DailyPayment:<@spring.formInput "form.dailyPayment" "" "number"/>
+            Employees: <@spring.formMultiSelect "form.employees" allEmployees ""/>
+            <br>
+            Task type: <@spring.formSingleSelect "form.taskType" allTaskTypes ""/>
+            <br>
+            StartDate:<@spring.formInput "form.startDate" "" "date"/>
+            <br>
+            FinishDate:<@spring.formInput "form.finishDate" "" "date"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

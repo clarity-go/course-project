@@ -34,50 +34,51 @@ public class EmployeeGuiController {
         return "employees";
     }
 
-//    @RequestMapping("/delete/{id}")
-//    public String delete(Model model, @PathVariable("id") String id){
-//        service.delete(id);
-//        List<Employee> employees = service.getAll();
-//        model.addAttribute("employees", employees);
-//        return "employees";
-//    }
-//
-//    @GetMapping("/create")
-//    public String create(Model model){
-//        EmployeeCreateForm formToCreate = new EmployeeCreateForm();
-//        model.addAttribute("form", formToCreate);
-//        return "employee-create";
-//    }
-//    @PostMapping("/create")
-//    public String create( @ModelAttribute("form") EmployeeCreateForm form){
-//        Employee employee = new Employee();
-//        employee.setName(form.getName());
-//        employee.setDescription(form.getDescription());
-//        service.create(employee);
-//        return "redirect:/gui/employee/all";
-//    }
-//
-//    @GetMapping("/update/{id}")
-//    public String update(Model model, @PathVariable("id") String id){
-//        Employee employee = service.get(id);
-//        EmployeeUpdateForm formToUpdate = new EmployeeUpdateForm();
-//        formToUpdate.setId(employee.getId());
-//        formToUpdate.setName(employee.getName());
-//        formToUpdate.setDescription(employee.getDescription());
-//        formToUpdate.setCreatedAt(employee.getCreatedAt());
-//        formToUpdate.setUpdatedAt(employee.getUpdatedAt());
-//        model.addAttribute("form", formToUpdate);
-//        return "employee-update";
-//    }
-//
-//    @PostMapping("/update/{id}")
-//    public String update( @ModelAttribute("form") EmployeeUpdateForm form){
-//        Employee employee = new Employee();
-//        employee.setId(form.getId());
-//        employee.setName(form.getName());
-//        employee.setDescription(form.getDescription());
-//        employee.setCreatedAt(form.getCreatedAt());
-//        service.update(employee);
-//        return "redirect:/gui/employee/all";
-//    }
+    @RequestMapping("/delete/{id}")
+    public String delete(Model model, @PathVariable("id") String id){
+        service.delete(id);
+        return "redirect:/gui/employee/all";
+    }
+
+    @GetMapping("/create")
+    public String create(Model model){
+        EmployeeCreateForm formToCreate = new EmployeeCreateForm();
+        model.addAttribute("form", formToCreate);
+        return "employee-create";
+    }
+    @PostMapping("/create")
+    public String create( @ModelAttribute("form") EmployeeCreateForm form){
+        Employee employee = new Employee();
+        employee.setSalary(form.getSalary());
+        employee.setName(form.getName());
+        employee.setDescription(form.getDescription());
+        service.create(employee);
+        return "redirect:/gui/employee/all";
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(Model model, @PathVariable("id") String id){
+        Employee employee = service.get(id);
+        EmployeeUpdateForm formToUpdate = new EmployeeUpdateForm();
+        formToUpdate.setId(employee.getId());
+        formToUpdate.setName(employee.getName());
+        formToUpdate.setSalary(employee.getSalary());
+        formToUpdate.setDescription(employee.getDescription());
+        formToUpdate.setCreatedAt(employee.getCreatedAt());
+        formToUpdate.setUpdatedAt(employee.getUpdatedAt());
+        model.addAttribute("form", formToUpdate);
+        return "employee-update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update( @ModelAttribute("form") EmployeeUpdateForm form){
+        Employee employee = new Employee();
+        employee.setId(form.getId());
+        employee.setName(form.getName());
+        employee.setSalary(form.getSalary());
+        employee.setDescription(form.getDescription());
+        employee.setCreatedAt(form.getCreatedAt());
+        service.update(employee);
+        return "redirect:/gui/employee/all";
+    }
 }

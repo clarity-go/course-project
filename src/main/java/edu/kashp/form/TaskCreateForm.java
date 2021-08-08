@@ -14,14 +14,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskCreateForm {
-    private TaskType taskType;
-    private LocalDate startDate;
-    private LocalDate finishDate;
-    private int numberOfEmployees;
+    private String taskType;
+    private String startDate;
+    private String finishDate;
+    private List<String> employees;
     private String description;
 }

@@ -28,7 +28,7 @@ public class TaskServiceImpl implements ITaskService {
     @Autowired
     TaskMongoRepository mongoRepository;
 
-    @PostConstruct
+    //@PostConstruct
     void init() {
         List<Task> list = repository.getAll();
         mongoRepository.saveAll(list);

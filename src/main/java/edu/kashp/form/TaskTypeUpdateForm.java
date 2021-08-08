@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TaskTypeUpdateForm {
     private String id;
+    private String type;
     private double dailyPayment;
     private String description;
     private LocalDateTime createdAt;

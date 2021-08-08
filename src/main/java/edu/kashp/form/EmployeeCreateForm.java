@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmployeeCreateForm {
     private String name;
-    private Task task;
     private double salary;
     private String description;
 }
