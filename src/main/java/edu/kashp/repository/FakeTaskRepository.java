@@ -8,7 +8,6 @@ package edu.kashp.repository;
   @since 20.07.2021 - 19.47
 */
 
-import edu.kashp.model.Employee;
 import edu.kashp.model.Task;
 import edu.kashp.model.TaskType;
 import org.springframework.stereotype.Repository;

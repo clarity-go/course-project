@@ -8,12 +8,10 @@ package edu.kashp.form;
   @since 22.07.2021 - 19.32
 */
 
-import edu.kashp.model.TaskType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Data

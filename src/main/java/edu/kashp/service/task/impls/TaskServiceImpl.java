@@ -35,23 +35,13 @@ public class TaskServiceImpl implements ITaskService {
     }
     @Override
     public Task create(Task task) {
-//        System.out.println("item has been accepted" + item.toString());
-//        list.add(item);
-//        return item;
         task.setCreatedAt(LocalDateTime.now());
         task.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(task);
-//        return repository.create(task);
     }
 
     @Override
     public Task get(String id) {
-
-//        Item item = list.stream().filter(el -> el.getId().equals(id))
-//                .findAny().get();
-//        return item;
-
-//        return repository.get(id);
         return mongoRepository.findById(id).get();
     }
 
@@ -61,9 +51,6 @@ public class TaskServiceImpl implements ITaskService {
         Task taskToUpdate = this.get(task.getId());
         LocalDateTime creation = taskToUpdate.getCreatedAt();
         task.setCreatedAt(creation);
-//        return null;
-//        return repository.update(item);
-
         task.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(task);
     }
@@ -73,17 +60,10 @@ public class TaskServiceImpl implements ITaskService {
         Task task = this.get(id);
         mongoRepository.deleteById(id);
         return task;
-
-//        Item item = this.get(id);
-//        list.remove(item);
-//        return repository.delete(id);
     }
 
     @Override
     public List<Task> getAll() {
-
-//        return list;
-//        return repository.getAll();
         return mongoRepository.findAll();
     }
 }

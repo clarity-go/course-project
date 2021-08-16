@@ -34,23 +34,13 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
 
     @Override
     public TaskType create(TaskType taskType) {
-//        System.out.println("item has been accepted" + item.toString());
-//        list.add(item);
-//        return item;
         taskType.setCreatedAt(LocalDateTime.now());
         taskType.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(taskType);
-//        return repository.create(taskType);
     }
 
     @Override
     public TaskType get(String id) {
-
-//        Item item = list.stream().filter(el -> el.getId().equals(id))
-//                .findAny().get();
-//        return item;
-
-//        return repository.get(id);
         return mongoRepository.findById(id).get();
     }
 
@@ -60,9 +50,6 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
         TaskType taskTypeToUpdate = this.get(taskType.getId());
         LocalDateTime creation = taskTypeToUpdate.getCreatedAt();
         taskType.setCreatedAt(creation);
-//        return null;
-//        return repository.update(item);
-
         taskType.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(taskType);
     }
@@ -72,17 +59,10 @@ public class TaskTypeServiceImpl implements ITaskTypeService {
         TaskType taskType = this.get(id);
         mongoRepository.deleteById(id);
         return taskType;
-
-//        Item item = this.get(id);
-//        list.remove(item);
-//        return repository.delete(id);
     }
 
     @Override
     public List<TaskType> getAll() {
-
-//        return list;
-//        return repository.getAll();
         return mongoRepository.findAll();
     }
 }

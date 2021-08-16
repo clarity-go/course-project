@@ -1,14 +1,11 @@
 package edu.kashp.form;
 
 import edu.kashp.model.Task;
-import edu.kashp.model.TaskType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /*

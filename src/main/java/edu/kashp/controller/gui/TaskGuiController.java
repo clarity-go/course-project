@@ -96,12 +96,6 @@ public class TaskGuiController {
     public String update(Model model, @PathVariable("id") String id){
         Task task = service.get(id);
         TaskUpdateForm formToUpdate = new TaskUpdateForm(task);
-        /*formToUpdate.setId(task.getId());
-        formToUpdate.setDescription(task.getDescription());
-        formToUpdate.setCreatedAt(task.getCreatedAt());
-        formToUpdate.setUpdatedAt(task.getUpdatedAt());
-        formToUpdate.setStartDate(task.getStartDate().toString());
-        formToUpdate.setFinishDate(task.getFinishDate().toString());*/
         Map<String, String> employeesMap = getEmployeesMap();
         Map<String, String> taskTypes = getTasksTypesMap();
         model.addAttribute("allEmployees", employeesMap);

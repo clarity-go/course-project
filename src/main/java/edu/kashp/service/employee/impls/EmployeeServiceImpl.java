@@ -39,17 +39,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         employee.setCreatedAt(LocalDateTime.now());
         employee.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(employee);
-//        return repository.create(employee);
     }
 
     @Override
     public Employee get(String id) {
-
-//        Item item = list.stream().filter(el -> el.getId().equals(id))
-//                .findAny().get();
-//        return item;
-
-//        return repository.get(id);
         return mongoRepository.findById(id).get();
     }
 
@@ -59,9 +52,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
         Employee employeeToUpdate = this.get(employee.getId());
         LocalDateTime creation = employeeToUpdate.getCreatedAt();
         employee.setCreatedAt(creation);
-//        return null;
-//        return repository.update(item);
-
         employee.setUpdatedAt(LocalDateTime.now());
         return mongoRepository.save(employee);
     }
@@ -71,17 +61,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         Employee employee = this.get(id);
         mongoRepository.deleteById(id);
         return employee;
-
-//        Item item = this.get(id);
-//        list.remove(item);
-//        return repository.delete(id);
     }
 
     @Override
     public List<Employee> getAll() {
-
-//        return list;
-//        return repository.getAll();
         return mongoRepository.findAll();
     }
 }
